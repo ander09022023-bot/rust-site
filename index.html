@@ -1,80 +1,94 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servidor Rust - AlvoradaZ</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Servidor Alvoradaz</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      width: 400%;
+      height: 100%;
+      animation: slide 20s infinite;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes slide {
+      0%   { transform: translateX(0%); }
+      20%  { transform: translateX(0%); }
+      25%  { transform: translateX(-100%); }
+      45%  { transform: translateX(-100%); }
+      50%  { transform: translateX(-200%); }
+      70%  { transform: translateX(-200%); }
+      75%  { transform: translateX(-300%); }
+      95%  { transform: translateX(-300%); }
+      100% { transform: translateX(0%); }
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .overlay h1 {
+      font-size: 4rem;
+      color: #ff4c4c;
+      text-shadow: 0 0 20px rgba(255, 76, 76, 0.9);
+    }
+
+    .overlay p {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-top: 15px;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">
-
-  <!-- Banner com logo -->
-  <header class="relative bg-gray-800">
-    <img src="https://i.imgur.com/Ll4ZcTt.png" alt="Logo Rust" class="mx-auto w-32 pt-6">
-    <div class="text-center py-6">
-      <h1 class="text-5xl md:text-6xl font-extrabold text-red-500 drop-shadow-lg">🔥 AlvoradaZ 2x</h1>
-      <p class="mt-2 text-lg text-gray-300">Servidor competitivo de Rust - Rápido, divertido e equilibrado!</p>
-      <a href="https://discord.gg/" target="_blank"
-         class="inline-block mt-4 px-6 py-3 bg-red-600 hover:bg-red-700 rounded-xl text-lg font-bold shadow-lg">
-        🎮 Entrar no Discord
-      </a>
+<body>
+  <div class="carousel">
+    <div class="slides">
+      <img src="rust-banner.jpg" alt="Banner Rust 1">
+      <img src="banner2.jpg" alt="Banner Rust 2">
+      <img src="banner3.jpg" alt="Banner Rust 3">
+      <img src="banner4.jpg" alt="Banner Rust 4">
     </div>
-  </header>
-
-  <!-- Menu -->
-  <nav class="bg-black bg-opacity-70 flex justify-center gap-6 py-4 text-lg font-semibold shadow-md sticky top-0 z-50">
-    <a href="#regras" class="hover:text-red-400">📜 Regras</a>
-    <a href="#vip" class="hover:text-yellow-400">⭐ Loja VIP</a>
-    <a href="#contato" class="hover:text-blue-400">📩 Contato</a>
-  </nav>
-
-  <!-- Regras -->
-  <section id="regras" class="p-10 max-w-4xl mx-auto">
-    <h2 class="text-3xl font-bold mb-4 text-red-400">📜 Regras</h2>
-    <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
-      <ul class="list-disc list-inside space-y-2 text-gray-300">
-        <li>🚫 Proibido hacks, cheats ou macros.</li>
-        <li>🤝 Respeite todos os jogadores e admins.</li>
-        <li>📢 Evite spam ou flood no chat.</li>
-        <li>⚖️ Decisões dos admins são finais.</li>
-      </ul>
+    <div class="overlay">
+      <h1>SERVIDOR ALVORADAZ</h1>
+      <p>Rust Survival • PvP • Eventos • 2x Loot</p>
     </div>
-  </section>
-
-  <!-- Loja VIP -->
-  <section id="vip" class="p-10 max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold mb-6 text-yellow-400 text-center">⭐ Loja VIP</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="p-6 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-xl text-center hover:scale-105 transition">
-        <h3 class="text-2xl font-bold text-gray-200">VIP Bronze</h3>
-        <p class="mt-2 text-gray-400">Kits básicos e comandos iniciais.</p>
-        <span class="block mt-4 text-green-400 font-bold text-xl">R$ 10,00</span>
-      </div>
-      <div class="p-6 bg-gradient-to-br from-yellow-600 to-yellow-500 rounded-2xl shadow-xl text-center hover:scale-105 transition">
-        <h3 class="text-2xl font-bold text-black">VIP Prata</h3>
-        <p class="mt-2 text-black">Tudo do Bronze + recursos avançados.</p>
-        <span class="block mt-4 text-black font-bold text-xl">R$ 20,00</span>
-      </div>
-      <div class="p-6 bg-gradient-to-br from-red-600 to-red-500 rounded-2xl shadow-xl text-center hover:scale-105 transition">
-        <h3 class="text-2xl font-bold">VIP Supremo</h3>
-        <p class="mt-2">Todas as vantagens exclusivas!</p>
-        <span class="block mt-4 text-white font-bold text-xl">R$ 40,00</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contato -->
-  <section id="contato" class="p-10 max-w-4xl mx-auto text-center">
-    <h2 class="text-3xl font-bold mb-4 text-blue-400">📩 Contato</h2>
-    <p class="text-gray-300">Entre em nosso <a href="https://discord.gg/" 
-       class="text-indigo-400 underline hover:text-indigo-300 font-bold">Discord</a> 
-       para suporte, novidades e sorteios!</p>
-  </section>
-
-  <!-- Rodapé -->
-  <footer class="bg-gray-800 text-center py-4 mt-10 text-sm text-gray-400">
-    © 2025 AlvoradaZ Rust - Todos os direitos reservados.
-  </footer>
-
+  </div>
 </body>
 </html>
